@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
 class InvisibleWidget extends StatelessWidget {
   const InvisibleWidget({super.key});
@@ -223,6 +224,7 @@ class InvisibleWidget extends StatelessWidget {
               ),
             ),
             SizedBox(height: 20),
+            // WIDGET LISTVIEW
             Container(
               child: Center(
                 child: Text(
@@ -231,12 +233,225 @@ class InvisibleWidget extends StatelessWidget {
                 ),
               ),
             ),
+
+            // LISTVIEW AXIS HORIZONTAL
             SizedBox(
               child: Center(
-                child: Text(
-                  'Halaman ini bisa discroll, karena menggunakan ListView',
-                  style: TextStyle(fontWeight: FontWeight.w900, fontSize: 17),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    'Halaman ini bisa discroll, karena menggunakan ListView, ini dipake kalo gamau ada pembungkus widget lagi (Single Child Scroll View)',
+                    style: TextStyle(fontWeight: FontWeight.w900, fontSize: 17),
+                  ),
                 ),
+              ),
+            ),
+            Container(
+              width: 300,
+              height: 300,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: [
+                  Container(
+                    width: 120,
+                    height: 120,
+                    color: Colors.deepOrange,
+                    child: Center(child: Text('ListView Horizontal Widget')),
+                  ),
+                  Container(
+                    width: 120,
+                    height: 120,
+                    color: Colors.amber,
+                    child: Center(child: Text('ListView Horizontal Widget')),
+                  ),
+                  Container(
+                    width: 120,
+                    height: 120,
+                    color: Colors.lightGreen,
+                    child: Center(child: Text('ListView Horizontal Widget')),
+                  ),
+                  Container(
+                    width: 120,
+                    height: 120,
+                    color: Colors.lightBlue,
+                    child: Center(child: Text('ListView Horizontal Widget')),
+                  ),
+                  Container(
+                    width: 120,
+                    height: 120,
+                    color: Colors.deepPurpleAccent,
+                    child: Center(child: Text('ListView Horizontal Widget')),
+                  ),
+                ],
+              ),
+            ),
+
+            // LISTVIEW AXIS VERTICAL
+            SizedBox(
+              height: 40,
+              child: Center(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    'Dibawah ini adalah ListView dengan Scroll Direction Vertical',
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
+                  ),
+                ),
+              ),
+            ),
+
+            Container(
+              width: 100,
+              height: 200,
+              child: ListView(
+                children: [
+                  Container(
+                    width: 120,
+                    height: 120,
+                    color: Colors.greenAccent,
+                    child: Center(child: Text('ListView Vertical Widget')),
+                  ),
+                  Container(
+                    width: 120,
+                    height: 120,
+                    color: Colors.indigoAccent,
+                    child: Center(child: Text('ListView Vertical Widget')),
+                  ),
+                  Container(
+                    width: 120,
+                    height: 120,
+                    color: Colors.limeAccent,
+                    child: Center(child: Text('ListView Vertical Widget')),
+                  ),
+                  Container(
+                    width: 120,
+                    height: 120,
+                    color: Colors.deepOrangeAccent,
+                    child: Center(child: Text('ListView Vertical Widget')),
+                  ),
+                  Container(
+                    width: 120,
+                    height: 120,
+                    color: Colors.lightGreenAccent,
+                    child: Center(child: Text('ListView Vertical Widget')),
+                  ),
+                ],
+              ),
+            ),
+
+            // GRIDVIEW
+            SizedBox(height: 20),
+            // GridView : FixedCrossAxisCount
+            Column(
+              children: [
+                Center(
+                  child: Text(
+                    'Ini Adalah Widget GridView dengan FixedCrossAxisCount ( 4 )',
+                    style: TextStyle(fontWeight: FontWeight.w800, fontSize: 25),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(
+              width: 100,
+              height: 250,
+              child: GridView(
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 4,
+                ),
+                children: [
+                  Container(
+                    width: 120,
+                    height: 120,
+                    color: Colors.yellow,
+                    child: Center(child: Text('Scroll View Widget')),
+                  ),
+                  Container(
+                    width: 120,
+                    height: 120,
+                    color: Colors.pink,
+                    child: Center(child: Text('Scroll View Widget')),
+                  ),
+                  Container(
+                    width: 120,
+                    height: 120,
+                    color: Colors.lime,
+                    child: Center(child: Text('Scroll View Widget')),
+                  ),
+                  Container(
+                    width: 120,
+                    height: 120,
+                    color: Colors.yellow,
+                    child: Center(child: Text('Scroll View Widget')),
+                  ),
+                  Container(
+                    width: 120,
+                    height: 120,
+                    color: Colors.pink,
+                    child: Center(child: Text('Scroll View Widget')),
+                  ),
+                  Container(
+                    width: 120,
+                    height: 120,
+                    color: Colors.lime,
+                    child: Center(child: Text('Scroll View Widget')),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(height: 20),
+
+            Column(
+              children: [
+                Center(
+                  child: Text(
+                    'Ini Adalah Widget GridView dengan maxCrossAxisExtent',
+                    style: TextStyle(fontWeight: FontWeight.w800, fontSize: 25),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(
+              width: 100,
+              height: 250,
+              child: GridView(
+                gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                  maxCrossAxisExtent: 200,
+                ),
+                children: [
+                  Container(
+                    width: 200,
+                    height: 200,
+                    color: Colors.yellow,
+                    child: Center(child: Text('Scroll View Widget')),
+                  ),
+                  Container(
+                    width: 120,
+                    height: 120,
+                    color: Colors.grey,
+                    child: Center(child: Text('Scroll View Widget')),
+                  ),
+                  Container(
+                    width: 120,
+                    height: 120,
+                    color: Colors.black38,
+                    child: Center(child: Text('Scroll View Widget')),
+                  ),
+                  Container(
+                    width: 120,
+                    height: 120,
+                    color: Colors.cyan,
+                    child: Center(child: Text('Scroll View Widget')),
+                  ),
+                  Container(
+                    width: 120,
+                    height: 120,
+                    color: Colors.amber,
+                    child: Center(child: Text('Scroll View Widget')),
+                  ),
+                ],
               ),
             ),
           ],
