@@ -34,7 +34,7 @@ class InvisibleWidget extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-                  width: 120,
+                  width: 100,
                   height: 120,
                   color: Colors.red,
                   child: Center(
@@ -145,8 +145,8 @@ class InvisibleWidget extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    width: 200,
-                    height: 200,
+                    width: 100,
+                    height: 100,
                     color: const Color.fromARGB(255, 111, 121, 231),
                     child: Center(
                       child: Text(
@@ -302,7 +302,7 @@ class InvisibleWidget extends StatelessWidget {
 
             Container(
               width: 100,
-              height: 200,
+              height: 100,
               child: ListView(
                 children: [
                   Container(
@@ -359,41 +359,44 @@ class InvisibleWidget extends StatelessWidget {
               child: GridView(
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 4,
+                  mainAxisSpacing: 12, // Jarak Baris
+                  crossAxisSpacing: 12, // Jarak Kolom
+                  childAspectRatio: 3 / 1, // Custom Aspect ratio pada item
                 ),
                 children: [
                   Container(
-                    width: 120,
-                    height: 120,
+                    width: 100,
+                    height: 100,
                     color: Colors.yellow,
                     child: Center(child: Text('Scroll View Widget')),
                   ),
                   Container(
-                    width: 120,
-                    height: 120,
+                    width: 100,
+                    height: 100,
                     color: Colors.pink,
                     child: Center(child: Text('Scroll View Widget')),
                   ),
                   Container(
-                    width: 120,
-                    height: 120,
+                    width: 100,
+                    height: 100,
                     color: Colors.lime,
                     child: Center(child: Text('Scroll View Widget')),
                   ),
                   Container(
-                    width: 120,
-                    height: 120,
+                    width: 100,
+                    height: 100,
                     color: Colors.yellow,
                     child: Center(child: Text('Scroll View Widget')),
                   ),
                   Container(
-                    width: 120,
-                    height: 120,
+                    width: 100,
+                    height: 100,
                     color: Colors.pink,
                     child: Center(child: Text('Scroll View Widget')),
                   ),
                   Container(
-                    width: 120,
-                    height: 120,
+                    width: 100,
+                    height: 100,
                     color: Colors.lime,
                     child: Center(child: Text('Scroll View Widget')),
                   ),
@@ -418,36 +421,37 @@ class InvisibleWidget extends StatelessWidget {
               height: 250,
               child: GridView(
                 gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-                  maxCrossAxisExtent: 200,
+                  maxCrossAxisExtent: 100,
+                  crossAxisSpacing: 12, // Menentukan jarak tiap kolom
                 ),
                 children: [
                   Container(
-                    width: 200,
-                    height: 200,
+                    width: 100,
+                    height: 100,
                     color: Colors.yellow,
                     child: Center(child: Text('Scroll View Widget')),
                   ),
                   Container(
-                    width: 120,
-                    height: 120,
+                    width: 100,
+                    height: 100,
                     color: Colors.grey,
                     child: Center(child: Text('Scroll View Widget')),
                   ),
                   Container(
-                    width: 120,
-                    height: 120,
+                    width: 100,
+                    height: 100,
                     color: Colors.black38,
                     child: Center(child: Text('Scroll View Widget')),
                   ),
                   Container(
-                    width: 120,
-                    height: 120,
+                    width: 100,
+                    height: 100,
                     color: Colors.cyan,
                     child: Center(child: Text('Scroll View Widget')),
                   ),
                   Container(
-                    width: 120,
-                    height: 120,
+                    width: 100,
+                    height: 100,
                     color: Colors.amber,
                     child: Center(child: Text('Scroll View Widget')),
                   ),
