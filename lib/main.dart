@@ -23,11 +23,13 @@ import 'package:belajar_flutter/pages_basic_flutter/latihan_basic/soal20.dart';
 import 'package:belajar_flutter/pages_basic_flutter/latihan_basic/soal_plus.dart';
 import 'package:belajar_flutter/pages_basic_flutter/latihan_basic/soal_plus18.dart';
 import 'package:belajar_flutter/pages_stateless_stateful/counter_app.dart';
+import 'package:belajar_flutter/pages_stateless_stateful/dialog.dart';
+import 'package:belajar_flutter/pages_stateless_stateful/snackbar.dart';
 
 import 'pages_basic_flutter/latihan_basic/soal1.dart';
 import 'pages_basic_flutter/latihan_basic/soal2.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(Snackbar());
 }
