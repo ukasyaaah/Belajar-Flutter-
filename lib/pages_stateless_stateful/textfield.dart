@@ -9,7 +9,13 @@ class TextFieldPage extends StatefulWidget {
 
 class _TextFieldPageState extends State<TextFieldPage> {
   bool isHidden = true;
-  TextEditingController passC = TextEditingController();
+  TextEditingController _passC = TextEditingController();
+
+  @override
+  void dispose() {
+    _passC.dispose(); // Jangan lupa di-dispose biar nggak bocor memory
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -182,7 +188,7 @@ class _TextFieldPageState extends State<TextFieldPage> {
                 SizedBox(height: 12),
                 TextField(
                   keyboardType: TextInputType.visiblePassword,
-                  controller: passC,
+                  controller: _passC,
                   obscureText: isHidden,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(
@@ -204,11 +210,29 @@ class _TextFieldPageState extends State<TextFieldPage> {
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    print('Passwordnya ${passC.text}');
+                    print('Passwordnya ${_passC.text}');
                   },
                   child: Text('Login'),
                 ),
                 SizedBox(height: 24),
+
+                /// onChanged & onSubmitted
+                Text(
+                  'onChanged & onSubmitted',
+                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                ),
+                SizedBox(height: 12),
+                TextField(
+                  // onChanged = Mendeteksi teks setiap kali ada perubahan
+                  onChanged: (value) {
+                    print('Teks berubah: $value');
+                  },
+
+                  // onSubmitted = Mendeteksi teks saat user tekan Enter
+                  onSubmitted: (value) {
+                    print('User menekan enter: $value');
+                  },
+                ),
               ],
             ),
           ),
