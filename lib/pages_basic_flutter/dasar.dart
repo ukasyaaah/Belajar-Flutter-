@@ -11,6 +11,8 @@ void main() {
 }
 
 class kyak extends StatelessWidget {
+  const kyak({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

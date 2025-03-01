@@ -38,12 +38,12 @@ class Home extends StatelessWidget {
                         actions: [
                           ElevatedButton(
                             onPressed: () {},
-                            child: Text('OKEI'),
                             style: ButtonStyle(
                               backgroundColor: WidgetStatePropertyAll(
                                 Colors.amber,
                               ),
                             ),
+                            child: Text('OKEI'),
                           ),
 
                           Text('Parahh'),

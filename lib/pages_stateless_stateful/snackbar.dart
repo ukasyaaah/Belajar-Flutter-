@@ -16,7 +16,7 @@ class HomeSnack extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Container(
+        child: SizedBox(
           width: 100,
           height: 100,
           child: ElevatedButton(

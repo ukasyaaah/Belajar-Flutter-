@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter/material.dart';
 
 class Soal21 extends StatelessWidget {
   const Soal21({super.key});
