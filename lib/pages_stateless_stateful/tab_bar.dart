@@ -9,120 +9,96 @@ class TabBarTest extends StatelessWidget {
   }
 }
 
-class Test extends StatelessWidget {
+class Test extends StatefulWidget {
   const Test({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: 2,
-      child: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.teal,
-          title: Text('WhatsApp'),
-          centerTitle: false,
-          titleTextStyle: TextStyle(
-            fontSize: 24,
-            fontWeight: FontWeight.bold,
-            color: Colors.white,
-          ),
-        ),
+  State<Test> createState() => _TestState();
+}
 
-        body: TabBarView(
-          children: [
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                ElevatedButton(
-                  onPressed: () {
-                    showDialog(
-                      context: context,
-                      builder: (BuildContext context) {
-                        return AlertDialog(
-                          backgroundColor: Colors.teal,
-                          title: Text('Hallo Ukhasyah'),
-                          titleTextStyle: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 24,
-                          ),
-                          content: Text('Hallo, Selamat Soreee, wkwkwk'),
-                          contentTextStyle: TextStyle(
-                            fontSize: 16,
-                            color: Colors.white,
-                          ),
-                          actions: [
-                            TextButton(onPressed: () {}, child: Text('Oke')),
-                          ],
-                        );
-                      },
-                    );
-                  },
-                  style: ButtonStyle(
-                    backgroundColor: WidgetStatePropertyAll(Colors.teal),
-                  ),
-                  child: Text(
-                    'Dialog',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                ElevatedButton(
-                  onPressed: () {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                        backgroundColor: Colors.teal,
-                        showCloseIcon: true,
-                        closeIconColor: Colors.white,
-                        behavior: SnackBarBehavior.floating,
-                        duration: Duration(seconds: 2),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(14),
-                        ),
-                        content: Text('Hallo Ukhasyaah'),
-                      ),
-                    );
-                  },
-                  style: ButtonStyle(
-                    backgroundColor: WidgetStatePropertyAll(Colors.teal),
-                  ),
-                  child: Text(
-                    'SnackBar',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ],
+class _TestState extends State<Test> with SingleTickerProviderStateMixin {
+  late TabController conT;
+
+  @override
+  void initState() {
+    // ✅ "this" sebagai vsync
+    conT = TabController(length: 3, vsync: this);
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    // ✅ Wajib dispose biar ga bocor memory
+    conT.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: const Color.fromARGB(255, 30, 41, 46),
+      appBar: AppBar(
+        title: Text('WhatsApp'),
+        titleTextStyle: TextStyle(
+          color: Colors.white,
+          fontWeight: FontWeight.bold,
+          fontSize: 24,
         ),
-        bottomNavigationBar: TabBar(
+        centerTitle: false,
+        backgroundColor: Colors.teal,
+        bottom: TabBar(
+          // ✅ Pakai controller yang udah kita buat
+          controller: conT,
+
+          labelColor: Colors.white,
+          labelStyle: TextStyle(fontWeight: FontWeight.bold),
+          indicatorColor: Colors.white,
+          unselectedLabelStyle: TextStyle(fontWeight: FontWeight.normal),
           tabs: [
-            Tab(
-              icon: Icon(
-                Icons.notifications,
-                semanticLabel: 'Dialog',
-                color: Colors.teal,
-              ),
-            ),
-            Tab(
-              icon: Icon(
-                Icons.call,
-                semanticLabel: 'SnackBar',
-                color: Colors.teal,
-              ),
-            ),
+            Tab(text: 'Semua'),
+            Tab(text: 'Group'),
+            Tab(text: 'Belum Dibaca'),
           ],
         ),
+      ),
+
+      body: TabBarView(
+        controller: conT, // ✅ Harus pakai controller juga
+        children: [
+          Tab(
+            child: Center(
+              child: Text(
+                'Semua Chat Disini',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+          ),
+          Tab(
+            child: Center(
+              child: Text(
+                'Group',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+          ),
+          Tab(
+            child: Center(
+              child: Text(
+                'Belum Dibaca',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
