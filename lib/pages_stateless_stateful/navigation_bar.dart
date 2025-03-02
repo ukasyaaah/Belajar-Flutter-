@@ -103,7 +103,7 @@ class _NavaBaraState extends State<NavaBara> {
         // Ganti Warna Background
         backgroundColor: Colors.teal,
 
-        overlayColor: WidgetStatePropertyAll(Colors.black),
+        overlayColor: WidgetStatePropertyAll(Color(0xFF121f00)),
 
         // labelTextStyle: WidgetStatePropertyAll(
         //   TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
