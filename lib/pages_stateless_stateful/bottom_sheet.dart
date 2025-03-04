@@ -31,7 +31,7 @@ class Home extends StatelessWidget {
                       ),
                       height: 300,
                       child: Center(
-                        child: ListView(
+                        child: Column(
                           children: [
                             ListTile(
                               onTap: () => Navigator.pop(context),
