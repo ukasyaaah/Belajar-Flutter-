@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
 
-class DropdownPage extends StatelessWidget {
-  final List dhata = [
-    {'nama': 'Ukhasyah', 'NIM': '890123'},
-    {'nama': 'Zufar', 'NIM': '234678'},
-    {'nama': 'Hani', 'NIM': '123098'},
-    {'nama': 'Fauzan', 'NIM': '932093'},
-    {'nama': 'Khaki', 'NIM': '2347432'},
+class DropdownPage extends StatefulWidget {
+  @override
+  State<DropdownPage> createState() => _DropdownPageState();
+}
+
+class _DropdownPageState extends State<DropdownPage> {
+  List<Map<String, String>> data = [
+    {'nama': 'Ukhasyah', 'jurusan': 'Programmer'},
+    {'nama': 'Zufar', 'jurusan': 'Designer'},
+    {'nama': 'Hani', 'jurusan': 'Engineer'},
   ];
+
+  String? selected;
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -17,18 +23,43 @@ class DropdownPage extends StatelessWidget {
           child: Padding(
             padding: EdgeInsets.all(30),
             child: DropdownButton(
+              icon: Icon(Icons.people),
+
+              /// Radius menu Dropdown
+              borderRadius: BorderRadius.circular(12),
+
+              /// Lebar menu
+              menuWidth: 120,
+
+              /// Jika belum memilih tampilkan hint
+              hint: Text('Mahasiswa'),
+
+              /// Biar dropdown ga kepotong
+              isExpanded: true,
+
+              /// Kasih Value biar terlihat nilai yg dipilih
+              value: selected,
+
+              /// Aksi ketika user milih item
+              onChanged:
+                  (value) => setState(() {
+                    selected = value;
+                    print(value);
+                  }),
+
               items:
-                  dhata
+                  data
                       .map(
                         (e) => DropdownMenuItem(
+                          /// Teks yang akan muncul pada pilihan dropdown
                           child: Text('${e['nama']}'),
-                          value: 'Nama nya ${e['nama']}, NIM nya ${e['NIM']}',
+
+                          /// Data yang disimpan saat user memilih item
+                          value:
+                              'Nama nya : ${e['nama']}, Jurusan : ${e['jurusan']}',
                         ),
                       )
                       .toList(),
-              onChanged: (value) {
-                print(value);
-              },
             ),
           ),
         ),
