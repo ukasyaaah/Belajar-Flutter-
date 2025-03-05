@@ -1,3 +1,4 @@
+import 'package:belajar_flutter/pages_stateless_stateful/navigation.dart';
 import 'package:flutter/material.dart';
 
 class DialogPage extends StatelessWidget {
@@ -37,23 +38,43 @@ class Home extends StatelessWidget {
                         ),
                         actions: [
                           ElevatedButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
                             style: ButtonStyle(
                               backgroundColor: WidgetStatePropertyAll(
-                                Colors.amber,
+                                Colors.lightGreen,
                               ),
                             ),
-                            child: Text('OKEI'),
+                            child: Text(
+                              'OKEI',
+                              style: TextStyle(color: Colors.white),
+                            ),
                           ),
-
-                          Text('Parahh'),
+                          ElevatedButton(
+                            onPressed: () {
+                              /// popUntil utk kembali ke home tanpa menutup halaman diatasnya
+                              Navigator.popUntil(
+                                context,
+                                ModalRoute.withName('/home'),
+                              );
+                            },
+                            style: ButtonStyle(
+                              backgroundColor: WidgetStatePropertyAll(
+                                Colors.red,
+                              ),
+                            ),
+                            child: Text(
+                              'Parahh',
+                              style: TextStyle(color: Colors.black),
+                            ),
+                          ),
                         ],
                       ),
                 );
               },
               child: Text('Pencet'),
             ),
-
           ],
         ),
       ),
