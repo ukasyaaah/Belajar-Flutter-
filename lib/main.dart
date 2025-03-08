@@ -2,6 +2,8 @@ import 'package:belajar_flutter/pages_http/http_get.dart';
 import 'package:belajar_flutter/pages_http/http_post.dart';
 import 'package:belajar_flutter/pages_http/latihan_materi/latihan_get.dart';
 import 'package:belajar_flutter/pages_http/latihan_materi/latihan_get_lagi.dart';
+import 'package:belajar_flutter/pages_http/latihan_materi/latihan_post.dart';
+import 'package:belajar_flutter/pages_http/latihan_materi/latihan_post2.dart';
 import 'package:belajar_flutter/pages_stateless_stateful/bottom_navbar.dart';
 import 'package:belajar_flutter/pages_stateless_stateful/drawer.dart';
 import 'package:belajar_flutter/pages_stateless_stateful/dropdown.dart';
@@ -24,6 +26,6 @@ class MyAmazingApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: HttpPost());
+    return MaterialApp(home: LatihanPost2());
   }
 }
