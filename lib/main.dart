@@ -1,4 +1,5 @@
 import 'package:belajar_flutter/pages_http/http_get.dart';
+import 'package:belajar_flutter/pages_http/latihan_get.dart';
 import 'package:belajar_flutter/pages_stateless_stateful/bottom_navbar.dart';
 import 'package:belajar_flutter/pages_stateless_stateful/drawer.dart';
 import 'package:belajar_flutter/pages_stateless_stateful/dropdown.dart';
@@ -14,15 +15,13 @@ import 'package:flutter/material.dart';
 
 void main() {
   runApp(MyAmazingApp());
-   
 }
+
 class MyAmazingApp extends StatelessWidget {
   const MyAmazingApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: HttpGet()
-    );
+    return MaterialApp(home: LatihanGet());
   }
 }
