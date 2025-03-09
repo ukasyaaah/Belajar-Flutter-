@@ -2,6 +2,7 @@ import 'package:belajar_flutter/pages_http/http_delete.dart';
 import 'package:belajar_flutter/pages_http/http_get.dart';
 import 'package:belajar_flutter/pages_http/http_post.dart';
 import 'package:belajar_flutter/pages_http/http_put_patch.dart';
+import 'package:belajar_flutter/pages_http/latihan_materi/latihan_delete.dart';
 import 'package:belajar_flutter/pages_http/latihan_materi/latihan_get.dart';
 import 'package:belajar_flutter/pages_http/latihan_materi/latihan_get_lagi.dart';
 import 'package:belajar_flutter/pages_http/latihan_materi/latihan_post.dart';
@@ -28,8 +29,6 @@ class MyAmazingApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: HttpDelete(
-      
-    ));
+    return MaterialApp(home: LatihanDelete());
   }
 }
