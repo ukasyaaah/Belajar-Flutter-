@@ -1,3 +1,4 @@
+import 'package:belajar_flutter/pages_http/http_delete.dart';
 import 'package:belajar_flutter/pages_http/http_get.dart';
 import 'package:belajar_flutter/pages_http/http_post.dart';
 import 'package:belajar_flutter/pages_http/http_put_patch.dart';
@@ -27,6 +28,8 @@ class MyAmazingApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: HttpPutPatch());
+    return MaterialApp(home: HttpDelete(
+      
+    ));
   }
 }
