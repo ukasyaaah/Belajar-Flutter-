@@ -1,3 +1,4 @@
+import 'package:belajar_flutter/pages_http/future_builder.dart';
 import 'package:belajar_flutter/pages_http/http_delete.dart';
 import 'package:belajar_flutter/pages_http/http_get.dart';
 import 'package:belajar_flutter/pages_http/http_post.dart';
@@ -29,6 +30,6 @@ class MyAmazingApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: LatihanDelete());
+    return MaterialApp(home: FutureBuilderPage());
   }
 }
