@@ -20,17 +20,16 @@ class _FtbuilderState extends State<Ftbuilder> {
       data.forEach((element) {
         allData.add(element);
       });
-    } catch (e) {}
+    } catch (e) {
+      Text('Error : $e');
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          'Murojaah Future Builder',
-          style: TextStyle(color: Colors.white),
-        ),
+        title: Text('User', style: TextStyle(color: Colors.white)),
         backgroundColor: Colors.blueGrey,
         centerTitle: true,
       ),
@@ -39,7 +38,12 @@ class _FtbuilderState extends State<Ftbuilder> {
         future: getData(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return Center(child: CircularProgressIndicator());
+            return Center(
+              child: CircularProgressIndicator(
+                color: Colors.black,
+                backgroundColor: Colors.lightGreenAccent,
+              ),
+            );
           } else {
             return ListView.builder(
               itemCount: allData.length,

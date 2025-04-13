@@ -29,9 +29,9 @@ class _LatihanGetState extends State<LatihanGet> {
       Uri.parse('https://open-api.my.id/api/doa/24'),
     );
 
-    if (myResponse.statusCode == 200) {
-      final data = jsonDecode(myResponse.body);
+    final data = jsonDecode(myResponse.body);
 
+    if (myResponse.statusCode == 200) {
       setState(() {
         judul = data['judul'].toString();
         doa = data['arab'].toString();
