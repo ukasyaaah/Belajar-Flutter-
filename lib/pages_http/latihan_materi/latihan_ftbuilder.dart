@@ -13,7 +13,7 @@ class _LatihanFtbuilderState extends State<LatihanFtbuilder> {
   /// Function Future utk  HTTP Request (get data)
   Future<List> getData() async {
     final response = await http.get(
-      Uri.parse('https://reqres.in/api/users?page=2'),
+      Uri.parse('https://reqres.in/api/users?page=3'),
     );
 
     if (response.statusCode == 200) {
@@ -43,9 +43,30 @@ class _LatihanFtbuilderState extends State<LatihanFtbuilder> {
               ),
             );
           } else if (snapshot.hasError) {
-            return Center(child: Text('Waduh Error : ${snapshot.error}'));
+            return Center(
+              child: AlertDialog(
+                content: Text('Waduhh Error : ${snapshot.error}'),
+                actions: [
+                  IconButton(
+                    onPressed: () => Navigator.pop(context),
+                    icon: Icon(Icons.done),
+                  ),
+                ],
+              ),
+            );
           } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-            return Center(child: Text('Data Kosong'));
+            return Center(
+              child: AlertDialog(
+                title: Text('Peringatan'),
+                content: Text('Data Kosong'),
+                actions: [
+                  IconButton(
+                    onPressed: () => Navigator.pop(context),
+                    icon: Icon(Icons.done),
+                  ),
+                ],
+              ),
+            );
           } else {
             var allData = snapshot.data!;
             return ListView.builder(

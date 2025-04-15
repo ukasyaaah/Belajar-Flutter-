@@ -1,6 +1,7 @@
-import 'package:belajar_flutter/pages_http/ftbuilder.dart';
+import 'package:belajar_flutter/widgets/text_button.dart';
 import 'package:belajar_flutter/pages_http/latihan_materi/latihan_ftbuilder.dart';
 import 'package:belajar_flutter/pages_http/latihan_materi/latihan_ftbuilder_lagi.dart';
+import 'package:belajar_flutter/pages_http/model.dart';
 
 import 'package:flutter/material.dart';
 
@@ -18,6 +19,7 @@ class MyAmazingApp extends StatelessWidget {
       routes: {
         '/FTBUILDER': (context) => const LatihanFtbuilder(),
         '/ftbuilderexam': (context) => const LatihanFtbuilderLagi(),
+        '/model': (context) => const Model(),
       },
       home: Homie(),
     );
@@ -41,40 +43,9 @@ class Homie extends StatelessWidget {
               teks: 'Cek Meals',
               color: Colors.yellow,
             ),
+            SizedBox(height: 20),
+            TextButtonn(nav: '/model', teks: 'Model', color: Colors.green),
           ],
-        ),
-      ),
-    );
-  }
-}
-
-class TextButtonn extends StatelessWidget {
-  final String nav;
-  final String teks;
-  final Color color;
-  const TextButtonn({
-    super.key,
-    required this.nav,
-    required this.teks,
-    required this.color,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return TextButton(
-      style: TextButton.styleFrom(
-        backgroundColor: color,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
-      ),
-      onPressed: () {
-        Navigator.of(context).pushNamed(nav);
-      },
-      child: Text(
-        teks,
-        style: TextStyle(
-          color: Colors.white,
-          fontWeight: FontWeight.bold,
-          fontSize: 24,
         ),
       ),
     );

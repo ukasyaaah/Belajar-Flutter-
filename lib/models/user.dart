@@ -1,7 +1,12 @@
+import 'package:flutter/material.dart';
+
 class UserModel {
+  @required
   late String avatar;
+  @required
   late String name;
+  @required
   late String email;
 
-  UserModel({required this.avatar, required this.name, required this.email});
+  UserModel(this.avatar, this.email, this.name);
 }
