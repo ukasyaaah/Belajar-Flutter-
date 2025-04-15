@@ -19,7 +19,7 @@ class MyAmazingApp extends StatelessWidget {
       routes: {
         '/FTBUILDER': (context) => const LatihanFtbuilder(),
         '/ftbuilderexam': (context) => const LatihanFtbuilderLagi(),
-        '/model': (context) => const Model(),
+        '/model': (context) => Model(),
       },
       home: Homie(),
     );
