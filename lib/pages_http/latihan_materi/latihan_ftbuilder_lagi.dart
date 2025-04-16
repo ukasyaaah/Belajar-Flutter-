@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:belajar_flutter/models/meals.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
@@ -11,14 +12,14 @@ class LatihanFtbuilderLagi extends StatefulWidget {
 }
 
 class _LatihanFtbuilderLagiState extends State<LatihanFtbuilderLagi> {
-  Future<List> getMeals() async {
+  Future<List<Meals>> getMeals() async {
     var response = await http.get(
       Uri.parse('https://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood'),
     );
 
     if (response.statusCode == 200) {
       List data = (jsonDecode(response.body) as Map<String, dynamic>)['meals'];
-      return data;
+      return data.map((json) => Meals.fromJson(json)).toList();
     } else {
       throw Exception('Fail Load Data');
     }
@@ -43,7 +44,7 @@ class _LatihanFtbuilderLagiState extends State<LatihanFtbuilderLagi> {
           } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
             return Center(child: Text('Data Kosong'));
           } else {
-            var allData = snapshot.data!;
+            List<Meals> allData = snapshot.data!;
             return GridView.builder(
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
@@ -60,12 +61,12 @@ class _LatihanFtbuilderLagiState extends State<LatihanFtbuilderLagi> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Image.network(
-                          '${allData[index]['strMealThumb']}',
+                          '${allData[index].strMealThumb}',
                           height: 150,
                           width: 150,
                         ),
 
-                        Text('${allData[index]['strMeal']}'),
+                        Text('${allData[index].strMeal}'),
                       ],
                     ),
                   ),

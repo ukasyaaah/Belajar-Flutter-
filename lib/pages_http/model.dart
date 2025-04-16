@@ -10,10 +10,9 @@ class Model extends StatelessWidget {
   Widget build(BuildContext context) {
     List<Product> dummy = List.generate(85, (index) {
       return Product(
-        faker.food.restaurant(),
-        'https://picsum.photos/id/$index/200',
-        10000 + Random().nextInt(100000),
-        faker.lorem.sentence(),
+        judul: faker.food.restaurant(),
+        img: 'https://picsum.photos/id/$index/200',
+        deskripsi: faker.lorem.sentence(),
       );
     });
     return Scaffold(
@@ -27,7 +26,7 @@ class Model extends StatelessWidget {
         ),
         itemBuilder:
             (context, index) => GridTile(
-              child: Image.network(dummy[index].imageURL),
+              child: Image.network(dummy[index].img),
               footer: GridTileBar(
                 title: Text(
                   dummy[index].judul,

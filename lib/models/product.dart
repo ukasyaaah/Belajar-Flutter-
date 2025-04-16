@@ -1,14 +1,16 @@
-import 'package:flutter/material.dart';
-
 class Product {
-  @required
-  String judul;
-  @required
-  String imageURL;
-  @required
-  int harga;
-  @required
-  String deskripsi;
+  final String judul;
+  final String img;
+  final String deskripsi;
 
-  Product(this.judul, this.imageURL, this.harga, this.deskripsi);
+  Product({required this.judul, required this.img, required this.deskripsi});
+
+  /// From Json
+  factory Product.fromJson(Map<String, dynamic> json) {
+    return Product(
+      judul: json['judul'],
+      img: json['img'],
+      deskripsi: json['deskripsi'],
+    );
+  }
 }
