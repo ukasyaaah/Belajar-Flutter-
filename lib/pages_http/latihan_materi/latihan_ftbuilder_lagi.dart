@@ -52,24 +52,26 @@ class _LatihanFtbuilderLagiState extends State<LatihanFtbuilderLagi> {
                 mainAxisSpacing: 12,
               ),
               itemCount: allData.length,
-              itemBuilder:
-                  (context, index) => Container(
-                    height: 2000,
-                    alignment: Alignment.center,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Image.network(
-                          '${allData[index].strMealThumb}',
-                          height: 150,
-                          width: 150,
-                        ),
+              itemBuilder: (context, index) {
+                final dhata = allData[index];
+                return Container(
+                  height: 2000,
+                  alignment: Alignment.center,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Image.network(
+                        dhata.strMealThumb,
+                        height: 150,
+                        width: 150,
+                      ),
 
-                        Text('${allData[index].strMeal}'),
-                      ],
-                    ),
+                      Text(dhata.strMeal),
+                    ],
                   ),
+                );
+              },
             );
           }
         },
