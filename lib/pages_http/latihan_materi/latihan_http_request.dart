@@ -11,49 +11,51 @@ class LatihanHttpRequest extends StatefulWidget {
 }
 
 class _LatihanHttpRequestState extends State<LatihanHttpRequest> {
+  Future fufufafa() async {
+    final response = await http.get(
+      Uri.parse('https://fufufafapi.vanirvan.my.id/api/'),
+    );
 
-  Future getImage() async{
-    final response = await http.get(Uri.parse('https://mymood.mymood.my.id/api/avatars'));
-
-final data = jsonDecode(response.body);
-return data;
-
+    final data = jsonDecode(response.body);
+    return data;
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.blueAccent,
       body: FutureBuilder(
-        future:getImage() ,
+        future: fufufafa(),
         builder: (BuildContext context, AsyncSnapshot snapshot) {
-if(snapshot.connectionState == ConnectionState.waiting){
-  return Center(child: CircularProgressIndicator(),);
-}else if(snapshot.hasError){
-    return Center(child: Text('Error : ${snapshot.error}'),);
-}else{
-final data = snapshot.data!;
-return GridView.builder(gridDelegate:SliverGridDelegateWithFixedCrossAxisCount(
-       crossAxisCount: 2,
-                crossAxisSpacing: 12,
-                mainAxisSpacing: 12,), 
-  itemBuilder:(context, index) {
-    final dhata = data[index];
-    return Container(
-                  height: 2000,
-                  alignment: Alignment.center,
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return Center(child: CircularProgressIndicator());
+          } else {
+            final quote = snapshot.data!;
+            return ListView.builder(
+              itemCount: quote.length,
+              itemBuilder: (context, index) {
+                return Padding(
+                  padding: const EdgeInsets.all(8.0),
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Image.network(
-                        dhata['avatar_path'],
-                        height: 150,
-                        width: 150,
+                      Card(
+                        margin: EdgeInsets.all(10),
+                        child: Column(
+                          
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Image.network('${quote[index]['image_url']}'),
+                            SizedBox(height: 10,),
+                            Text('${quote[index]['content']}')],
+                        ),
                       ),
                     ],
                   ),
                 );
-},);
-}
+              },
+            );
+          }
         },
       ),
     );
