@@ -18,6 +18,8 @@ class _LatihanFtbuilderState extends State<LatihanFtbuilder> {
     );
 
     if (response.statusCode == 200) {
+
+
       List data = (jsonDecode(response.body) as Map<String, dynamic>)['data'];
       return data.map((json) => User.fromJson(json)).toList();
     } else {

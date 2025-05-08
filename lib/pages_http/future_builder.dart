@@ -11,7 +11,7 @@ class FutureBuilderPage extends StatefulWidget {
 }
 
 class _FutureBuilderPageState extends State<FutureBuilderPage> {
-  /// Future Function
+
   Future<List<Map<String, dynamic>>> getAllUser() async {
     try {
       final response = await http.get(
