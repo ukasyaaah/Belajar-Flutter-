@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:math';
 
 import 'package:belajar_flutter/models/surah.dart';
 import 'package:flutter/material.dart';
@@ -17,19 +18,13 @@ class _FtquranState extends State<Ftquran> {
       Uri.parse('https://equran.id/api/v2/surat/114'),
     );
 
-    print(response.body);
-
     if (response.statusCode == 200) {
-      final json = (jsonDecode(response.body) as Map<String, dynamic>)['data'];
-      if (json is Map) {
-        print('Map ✅');
-      } else if (json is List) {
-        print('List ✅');
-      }
+      final Map<String, dynamic> json =
+          (jsonDecode(response.body) as Map<String, dynamic>)['data'];
 
       return Surah.fromJson(json);
-    } else {
-      throw Exception('Halah');
+    }else{
+      throw Exception('hayo');
     }
   }
 
