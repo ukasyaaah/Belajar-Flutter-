@@ -1,4 +1,5 @@
 import 'package:belajar_flutter/pages/pages_http.dart';
+import 'package:belajar_flutter/pages/pages_package.dart';
 import 'package:belajar_flutter/widgets/text_button.dart';
 
 import 'package:flutter/material.dart';
@@ -14,7 +15,12 @@ class MyAmazingApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      routes: {'/http': (context) => const PagesHttp()},
+      routes: {
+        '/http': (context) => const PagesHttp(),
+        '/package': (context) => const PagesPackage(),
+        
+        
+        },
       home: Homie(),
     );
   }
@@ -31,6 +37,8 @@ class Homie extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             TextButtonn(nav: '/http', teks: 'HTTP', color: Colors.red),
+            SizedBox(height: 20),
+             TextButtonn(nav: '/package', teks: 'Package', color: Colors.yellowAccent),
             SizedBox(height: 20),
           ],
         ),
