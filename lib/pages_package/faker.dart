@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:faker/faker.dart';
+import 'package:intl/intl.dart';
+import 'package:intl/date_symbol_data_local.dart';
 
 class FakerPage extends StatelessWidget {
-  var faker = new Faker();
+  var faker = Faker();
 
   @override
   Widget build(BuildContext context) {
-    print(faker.animal.name);
+    initializeDateFormatting('id_ID', null);
+
     return Scaffold(
       appBar: AppBar(title: Text('Faker')),
       body: ListView.builder(
@@ -15,10 +18,14 @@ class FakerPage extends StatelessWidget {
           return ListTile(
             leading: CircleAvatar(
               backgroundColor: Colors.blue,
-              backgroundImage: NetworkImage('https://picsum.photos/id/${200 + index}/100'),
+              backgroundImage: NetworkImage(
+                'https://picsum.photos/id/${200 + index}/100',
+              ),
             ),
             title: Text('${faker.person.name()}'),
-            subtitle: Text('${faker.internet.email()}'),
+            subtitle: Text(
+              '${DateFormat.yMMMEd('id_ID').add_Hm().format(DateTime.now())}',
+            ),
           );
         },
       ),
