@@ -33,7 +33,7 @@ class PagesPackage extends StatelessWidget {
               children: [
                 TextButtonn(
                   nav: '/faker',
-                  teks: 'Faker',
+                  teks: 'Faker & intl',
                   color: Colors.red,
                 ),
                 SizedBox(height: 20),
