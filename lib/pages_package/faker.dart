@@ -1,3 +1,6 @@
+import 'dart:math';
+
+import 'package:avatar_glow/avatar_glow.dart';
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:faker/faker.dart' as my;
@@ -24,10 +27,19 @@ class _FakerPageState extends State<FakerPage> {
         itemCount: 5,
         itemBuilder: (context, index) {
           return ListTile(
-            leading: CircleAvatar(
-              backgroundColor: Colors.blue,
-              backgroundImage: NetworkImage(
-                'https://picsum.photos/id/${200 + index}/100',
+            leading: AvatarGlow(
+              glowRadiusFactor: 0.2,
+              glowColor: Color.fromARGB(
+                255,
+                index + Random().nextInt(220),
+                index + Random().nextInt(230),
+                index + Random().nextInt(210),
+              ),
+              child: CircleAvatar(
+                backgroundColor: Colors.blue,
+                backgroundImage: NetworkImage(
+                  'https://picsum.photos/id/${200 + index}/100',
+                ),
               ),
             ),
             title: Text('${faker.person.name()}'),
