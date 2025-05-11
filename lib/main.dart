@@ -1,5 +1,6 @@
 import 'package:belajar_flutter/pages/pages_http.dart';
 import 'package:belajar_flutter/pages/pages_package.dart';
+import 'package:belajar_flutter/pages_package/introduction.dart';
 import 'package:belajar_flutter/widgets/text_button.dart';
 
 import 'package:flutter/material.dart';
@@ -21,7 +22,7 @@ class MyAmazingApp extends StatelessWidget {
         
         
         },
-      home: Homie(),
+      home: Introduction(),
     );
   }
 }
