@@ -1,5 +1,6 @@
 
 
+import 'package:belajar_flutter/pages_package/dropdown_search.dart';
 import 'package:belajar_flutter/pages_package/faker.dart';
 import 'package:belajar_flutter/widgets/text_button.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +14,7 @@ class PagesPackage extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       routes: {
         '/faker': (context) =>  FakerPage(),
+        '/drop': (context) =>  DropdownSearch(),
      
       },
 
@@ -37,7 +39,12 @@ class PagesPackage extends StatelessWidget {
                   color: Colors.red,
                 ),
                 SizedBox(height: 20),
-            
+                TextButtonn(
+                  nav: '/drop',
+                  teks: 'Dropdown Search',
+                  color: Colors.yellow,
+                ),
+                SizedBox(height: 20),
           
                  
               ],
