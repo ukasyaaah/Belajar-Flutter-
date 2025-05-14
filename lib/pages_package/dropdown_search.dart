@@ -1,7 +1,10 @@
 import 'dart:async';
+import 'dart:convert';
 
+import 'package:belajar_flutter/models/wilayah_indo.dart';
 import 'package:flutter/material.dart';
 import 'package:dropdown_search/dropdown_search.dart' as my;
+import 'package:http/http.dart' as http;
 
 class DropdownSearch extends StatelessWidget {
   FutureOr<List<Map<String, dynamic>>> data = [
@@ -10,6 +13,8 @@ class DropdownSearch extends StatelessWidget {
     {'Kota': 'Boyolali', 'total': '9000'},
     {'Kota': 'Batam', 'total': '2000'},
   ];
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,6 +26,7 @@ class DropdownSearch extends StatelessWidget {
             children: [
               my.DropdownSearch<Map<String, dynamic>>(
                 items: (filter, loadProps) => data,
+
                 compareFn:
                     (item1, item2) => 'item1.${'Kota'}' == 'item2.${'total'}',
 
@@ -61,6 +67,10 @@ class DropdownSearch extends StatelessWidget {
                   clearButtonProps: my.ClearButtonProps(isVisible: true),
                 ),
               ),
+
+              SizedBox(height: 24),
+
+
             ],
           ),
         ),
