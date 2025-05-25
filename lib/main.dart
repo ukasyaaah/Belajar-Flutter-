@@ -22,9 +22,8 @@ class _MyAmazingAppState extends State<MyAmazingApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-    
       theme: ThemeData(
-        scaffoldBackgroundColor: Colors.purpleAccent,
+        scaffoldBackgroundColor: myWhite,
         appBarTheme: AppBarTheme(backgroundColor: Colors.pinkAccent),
         textTheme: TextTheme(bodyMedium: TextStyle(color: myGreen)),
       ),
