@@ -17,8 +17,8 @@ class _LatihanModelTfbuildState extends State<LatihanModelTfbuild> {
       Uri.parse('https://reqres.in/api/users?page=2'),
       headers: {'x-api-key': 'reqres-free-v1'},
     );
-    print('Status Code: ${response.statusCode}');
-    print('Response Body: ${response.body}');
+    // print('Status Code: ${response.statusCode}');
+    // print('Response Body: ${response.body}');
 
     if (response.statusCode == 200) {
       List data = (jsonDecode(response.body) as Map<String, dynamic>)['data'];
@@ -32,7 +32,7 @@ class _LatihanModelTfbuildState extends State<LatihanModelTfbuild> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.deepPurpleAccent,
+        backgroundColor: AppBarTheme().backgroundColor,
         title: Text('Model FT Builder'),
         centerTitle: true,
       ),

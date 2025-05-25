@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class DropdownPage extends StatefulWidget {
+  const DropdownPage({super.key});
+
   @override
   State<DropdownPage> createState() => _DropdownPageState();
 }
@@ -52,11 +54,10 @@ class _DropdownPageState extends State<DropdownPage> {
                       .map(
                         (e) => DropdownMenuItem(
                           /// Teks yang akan muncul pada pilihan dropdown
-                          child: Text('${e['nama']}'),
-
-                          /// Data yang disimpan saat user memilih item
                           value:
                               'Nama nya : ${e['nama']}, Jurusan : ${e['jurusan']}',
+                          /// Teks yang akan muncul pada pilihan dropdown
+                          child: Text('${e['nama']}'),
                         ),
                       )
                       .toList(),

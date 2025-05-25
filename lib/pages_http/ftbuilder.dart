@@ -17,9 +17,9 @@ class _FtbuilderState extends State<Ftbuilder> {
       var response = await http.get(Uri.parse('https://reqres.in/api/users'));
 
       List data = (jsonDecode(response.body) as Map<String, dynamic>)['data'];
-      data.forEach((element) {
+      for (var element in data) {
         allData.add(element);
-      });
+      }
     } catch (e) {
       Text('Error : $e');
     }

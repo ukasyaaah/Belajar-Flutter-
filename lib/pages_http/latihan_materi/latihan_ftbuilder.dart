@@ -78,7 +78,7 @@ class _LatihanFtbuilderState extends State<LatihanFtbuilder> {
                   (context, index) => ListTile(
                     leading: CircleAvatar(
                       backgroundColor: Colors.grey,
-                      backgroundImage: NetworkImage('${allData[index].avatar}'),
+                      backgroundImage: NetworkImage(allData[index].avatar),
                     ),
                     title: Text(
                       '${allData[index].first_name} ${allData[index].last_name}',

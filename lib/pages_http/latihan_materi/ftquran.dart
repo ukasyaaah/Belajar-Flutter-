@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:math';
 
 import 'package:belajar_flutter/models/surah.dart';
 import 'package:flutter/material.dart';

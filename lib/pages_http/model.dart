@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 
 class Model extends StatelessWidget {
   final my.Faker faker = my.Faker();
+
+  Model({super.key});
   @override
   Widget build(BuildContext context) {
     List<Product> dummy = List.generate(85, (index) {
@@ -26,7 +28,6 @@ class Model extends StatelessWidget {
         ),
         itemBuilder:
             (context, index) => GridTile(
-              child: Image.network(dummy[index].img),
               footer: GridTileBar(
                 title: Text(
                   dummy[index].judul,
@@ -47,6 +48,7 @@ class Model extends StatelessWidget {
                   ),
                 ),
               ),
+              child: Image.network(dummy[index].img),
             ),
 
         itemCount: dummy.length,

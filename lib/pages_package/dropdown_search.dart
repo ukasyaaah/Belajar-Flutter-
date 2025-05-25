@@ -12,6 +12,8 @@ class DropdownSearch extends StatelessWidget {
     {'Kota': 'Batam', 'total': '2000'},
   ];
 
+  DropdownSearch({super.key});
+
 
   @override
   Widget build(BuildContext context) {

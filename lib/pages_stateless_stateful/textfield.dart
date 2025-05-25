@@ -9,7 +9,7 @@ class TextFieldPage extends StatefulWidget {
 
 class _TextFieldPageState extends State<TextFieldPage> {
   bool isHidden = true;
-  TextEditingController _passC = TextEditingController();
+  final TextEditingController _passC = TextEditingController();
 
   @override
   void dispose() {

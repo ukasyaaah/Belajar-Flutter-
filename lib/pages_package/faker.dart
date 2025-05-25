@@ -8,6 +8,8 @@ import 'package:intl/intl.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
 class FakerPage extends StatefulWidget {
+  const FakerPage({super.key});
+
   @override
   State<FakerPage> createState() => _FakerPageState();
 }
@@ -42,9 +44,9 @@ class _FakerPageState extends State<FakerPage> {
                 ),
               ),
             ),
-            title: Text('${faker.person.name()}'),
+            title: Text(faker.person.name()),
             subtitle: Text(
-              '${DateFormat.yMMMEd('id_ID').add_Hm().format(DateTime.now())}',
+              DateFormat.yMMMEd('id_ID').add_Hm().format(DateTime.now()),
             ),
           );
         },
